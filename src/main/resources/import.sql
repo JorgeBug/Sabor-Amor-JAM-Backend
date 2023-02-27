@@ -1,0 +1,1 @@
+INSERT INTO usuario(nombre, apellido, email, telefono) VALUES('Beto', 'Fernández', 'masterdelingles@generation.mx', '55 54-673823');
