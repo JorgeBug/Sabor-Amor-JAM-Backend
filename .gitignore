@@ -37,6 +37,5 @@ build/
 .mvn
 mvnw
 mvnw
-pom.xml
+pom
 target
-mvnw.cmd

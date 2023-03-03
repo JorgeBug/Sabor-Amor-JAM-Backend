@@ -17,6 +17,10 @@ public class Carrito {
 
     }
 
+    public Carrito(Usuario fkIdUsuario){
+        this.fkIdUsuario = fkIdUsuario;
+    }
+
 
     public int getIdCarrito() {
         return idCarrito;
