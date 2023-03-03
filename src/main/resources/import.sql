@@ -5,5 +5,5 @@ INSERT INTO empleado(nombre, apellido, puesto, fecha_nacimiento, salario) VALUES
 INSERT INTO empleado(nombre, apellido, puesto, fecha_nacimiento, salario) VALUES ("Clemente", "Ramírez", "Intendente", "1971-11-01", "7000.00")
 
 INSERT INTO usuario(nombre, apellido, email, telefono,contrasenia ) VALUES("José", "Fernández", "masterdelingles@generation.mx", "55 54-673823","password");
-
+INSERT INTO carrito(fk_id_usuario) VALUES ("1");
 

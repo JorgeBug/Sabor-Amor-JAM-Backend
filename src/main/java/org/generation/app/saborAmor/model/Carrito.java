@@ -1,6 +1,7 @@
 package org.generation.app.saborAmor.model;
 
 import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 @Entity
 public class Carrito {

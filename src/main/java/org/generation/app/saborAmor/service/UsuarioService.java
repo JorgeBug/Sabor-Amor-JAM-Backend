@@ -15,6 +15,23 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public List<Usuario> getAllUsuarios() {
+
         return (List<Usuario>) usuarioRepository.findAll();
+    }
+
+    @Override
+    public Usuario setUsuario(Usuario usuario) {
+        if ( existUsuarioByEmail(usuario.getEmail() ) )
+            throw new IllegalStateException("The user already exists with email: " + usuario.getEmail());
+        else if ( usuario.getEmail().length() > 150 )
+            throw new IllegalStateException("Email length is greater than: " + 150);
+
+        return usuarioRepository.save(usuario);
+
+    }
+
+    @Override
+    public boolean existUsuarioByEmail(String email) {
+        return usuarioRepository.existsByEmail(email);
     }
 }

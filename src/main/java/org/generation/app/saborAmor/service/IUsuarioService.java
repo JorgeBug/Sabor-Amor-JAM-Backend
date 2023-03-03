@@ -8,4 +8,12 @@ public interface IUsuarioService {
 
     public List<Usuario> getAllUsuarios();
 
+    public Usuario setUsuario(Usuario usuario);
+
+    public boolean existUsuarioByEmail(String email);
+
+
+
+
+
 }

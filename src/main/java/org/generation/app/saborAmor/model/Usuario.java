@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 @Entity
 public class Usuario {
 
+    public static final int FIELD_MAX_LENGTH = 160;
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     protected int idUsuario;

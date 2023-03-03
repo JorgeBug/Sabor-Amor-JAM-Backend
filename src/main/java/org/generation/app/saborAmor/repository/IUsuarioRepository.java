@@ -9,4 +9,6 @@ public interface IUsuarioRepository extends CrudRepository<Usuario,Integer> {
 
     List<Usuario> findByEmail(String email);
 
+    boolean existsByEmail(String email);
+
 }

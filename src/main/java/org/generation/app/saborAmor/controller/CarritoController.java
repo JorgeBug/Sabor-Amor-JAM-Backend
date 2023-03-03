@@ -3,12 +3,12 @@ package org.generation.app.saborAmor.controller;
 import org.generation.app.saborAmor.model.Carrito;
 import org.generation.app.saborAmor.service.ICarritoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class CarritoController {
 
     @Autowired
