@@ -1,9 +1,6 @@
 package org.generation.app.saborAmor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Producto {
@@ -12,16 +9,22 @@ public class Producto {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idProducto;
 
+    @Column( nullable = false)
     private String nombre;
 
+    @Column( nullable = false)
     private int precio;
 
+    @Column( nullable = false)
     private int contenido;
 
+    @Column( nullable = false)
     private String descripcion;
 
+    @Column( nullable = false)
     private String imgLink;
 
+    @Column( nullable = false)
     private String spicy;
 
     protected Producto() {

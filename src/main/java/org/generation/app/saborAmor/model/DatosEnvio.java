@@ -1,9 +1,6 @@
 package org.generation.app.saborAmor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class DatosEnvio {
@@ -12,42 +9,52 @@ public class DatosEnvio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEnvio;
 
+    @Column( nullable = false)
     private String nombre;
 
+    @Column( nullable = false)
     private String apellido;
 
+    @Column( nullable = false)
     private String calle;
 
+    @Column( nullable = false)
     private String numExterior;
 
     private String interior;
 
+    @Column( nullable = false)
     private int cp;
 
+    @Column( nullable = false)
     private String colonia;
 
+    @Column( nullable = false)
     private String estado;
 
+    @Column( nullable = false)
     private String municipio;
 
-    private int usuarioIdUsuario;
+    @ManyToOne
+    @JoinColumn(name="fk_idUsuario")
+    private Usuario fkIdUsuario;
 
     protected DatosEnvio() {
 
     }
 
-    public DatosEnvio(String nombre, String apellido, String calle, String numExterior, String interior, int cp,
-                      String colonia, String estado, String municipio, int usuarioIdUsuario) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.calle = calle;
-        this.numExterior = numExterior;
-        this.interior = interior;
-        this.cp = cp;
-        this.colonia = colonia;
-        this.estado = estado;
-        this.municipio = municipio;
-    }
+//    public DatosEnvio(String nombre, String apellido, String calle, String numExterior, String interior, int cp,
+//                      String colonia, String estado, String municipio, int fkIdUsuario) {
+//        this.nombre = nombre;
+//        this.apellido = apellido;
+//        this.calle = calle;
+//        this.numExterior = numExterior;
+//        this.interior = interior;
+//        this.cp = cp;
+//        this.colonia = colonia;
+//        this.estado = estado;
+//        this.municipio = municipio;
+//    }
 
     public int getIdEnvio() {
         return idEnvio;
@@ -129,13 +136,6 @@ public class DatosEnvio {
         this.municipio = municipio;
     }
 
-    public int getUsuarioIdUsuario() {
-        return usuarioIdUsuario;
-    }
-
-    public void setUsuarioIdUsuario(int usuarioIdUsuario) {
-        this.usuarioIdUsuario = usuarioIdUsuario;
-    }
 
 
 }

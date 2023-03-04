@@ -12,15 +12,19 @@ public class Usuario {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     protected int idUsuario;
 
+    @Column(unique=true, nullable = false)
     private String nombre;
 
+    @Column( nullable = false)
     private String apellido;
 
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     private String email;
 
+    @Column( nullable = false)
     private String telefono;
 
+    @Column( nullable = false)
     private String contrasenia;
 
     protected Usuario(){

@@ -1,9 +1,6 @@
 package org.generation.app.saborAmor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Pedido {
@@ -12,13 +9,18 @@ public class Pedido {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idPedido;
 
+    @Column( nullable = false)
     private String fechaPedido;
 
     private String fechaEntrega;
 
+    @Column( nullable = false)
     private int monto;
 
-    private int carritoIdCarrito;
+    @ManyToOne
+    @JoinColumn(name="fk_IdCarrito")
+    private Carrito fkIdCarrito;
+
 
     protected Pedido() {
 
@@ -28,7 +30,6 @@ public class Pedido {
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;
         this.monto = monto;
-        this.carritoIdCarrito = carritoIdCarrito;
     }
 
     public int getIdPedido() {
@@ -63,13 +64,6 @@ public class Pedido {
         this.monto = monto;
     }
 
-    public int getCarritoIdCarrito() {
-        return carritoIdCarrito;
-    }
-
-    public void setCarritoIdCarrito(int carritoIdCarrito) {
-        this.carritoIdCarrito = carritoIdCarrito;
-    }
 
 
 }

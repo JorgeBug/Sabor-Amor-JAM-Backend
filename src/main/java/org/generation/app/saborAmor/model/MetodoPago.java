@@ -1,9 +1,6 @@
 package org.generation.app.saborAmor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class MetodoPago {
@@ -12,26 +9,27 @@ public class MetodoPago {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
+    @Column( nullable = false)
     private String numTarjeta;
-
+    @Column( nullable = false)
     private String titularTarjeta;
+    @Column( nullable = false)
+    private int cvv;
 
-    private String banco;
+    @Column( nullable = false)
+    private String fechaDeExpiracion;
 
-    private int usuarioIdUsuario;
+    @ManyToOne
+    @JoinColumn(name="fk_idUsario")
+    private Usuario fkIdUsuario;
 
     //Constructor por default
     protected MetodoPago() {
 
     }
 
-    public MetodoPago(String numTarjeta, String titularTarjeta, String banco, int usuarioIdUsuario) {
-        super();
-        this.numTarjeta = numTarjeta;
-        this.titularTarjeta = titularTarjeta;
-        this.banco = banco;
-        this.usuarioIdUsuario = usuarioIdUsuario;
-    }
+
+
 
     public String getNumTarjeta() {
         return numTarjeta;
@@ -49,21 +47,6 @@ public class MetodoPago {
         this.titularTarjeta = titularTarjeta;
     }
 
-    public String getBanco() {
-        return banco;
-    }
-
-    public void setBanco(String banco) {
-        this.banco = banco;
-    }
-
-    public int getUsuarioIdUsuario() {
-        return usuarioIdUsuario;
-    }
-
-    public void setUsuarioIdUsuario(int usuarioIdUsuario) {
-        this.usuarioIdUsuario = usuarioIdUsuario;
-    }
 
     public int getId() {
         return id;
