@@ -45,7 +45,6 @@ public class UsuarioService implements IUsuarioService {
         // Obtener los datos actuales del cliente
         Usuario customer = getUsuarioByEmail(newDataCustomer.getEmail()).get(0);
         //Actualizar los datos permitidos
-      //  customer.setIdUsuario(newDataCustomer.getIdUsuario());
         customer.setNombre( newDataCustomer.getNombre() );
         customer.setApellido( newDataCustomer.getApellido() );
         customer.setContrasenia( newDataCustomer.getContrasenia() );
@@ -63,6 +62,13 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public List<Usuario> getUsuarioByEmail(String email) {
         return usuarioRepository.findByEmail(email);
+    }
+
+    @Override
+    public String deleteUsuarioById(int idUsuario) {
+        Usuario customer = getUsuarioById(idUsuario);
+        usuarioRepository.delete(customer);
+        return "The user was delete with id " + idUsuario;
     }
 
 

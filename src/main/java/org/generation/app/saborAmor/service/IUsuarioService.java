@@ -18,8 +18,6 @@ public interface IUsuarioService {
 
     public List<Usuario> getUsuarioByEmail(String email);
 
-
-
-
+    public String deleteUsuarioById(int idUsuario);
 
 }
