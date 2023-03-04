@@ -20,4 +20,5 @@ INSERT INTO carrito(fk_id_usuario) VALUES ("1");
 
 
 --Productos
-INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy) VALUES ("MI SUPER SALSITA",70,250,"#"," Texto de descripcion","3");
+INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("MI SUPER SALSITA",70,250,"#"," Texto de descripcion","3","salsa");
+INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("MI MERMELADITA",190,100,"#"," Texto de descripcion","3","mermelada");

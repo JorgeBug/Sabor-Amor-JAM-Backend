@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IProductService {
 
-    List<Producto> findAllByCategoria();
+    List<Producto> findAllByCategoria(String categoria);
 
     List<Producto> getAllProductos();
 

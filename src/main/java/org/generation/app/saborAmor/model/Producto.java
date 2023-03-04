@@ -27,6 +27,9 @@ public class Producto {
     @Column( nullable = false)
     private String spicy;
 
+    @Column ( nullable = false)
+    private String categoria;
+
     protected Producto() {
 
     }
