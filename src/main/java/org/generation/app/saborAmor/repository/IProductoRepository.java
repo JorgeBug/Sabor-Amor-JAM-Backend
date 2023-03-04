@@ -1,4 +1,13 @@
 package org.generation.app.saborAmor.repository;
 
-public interface IProductoRepository {
+import org.generation.app.saborAmor.model.Producto;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface IProductoRepository extends CrudRepository<Producto,Integer> {
+
+    List<Producto> findAllByCategoria();
+
+
 }
