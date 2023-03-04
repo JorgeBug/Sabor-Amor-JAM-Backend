@@ -5,10 +5,7 @@ import org.generation.app.saborAmor.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +32,29 @@ public class UsuarioController {
             return new ResponseEntity<String>(e.getMessage() , HttpStatus.BAD_REQUEST );
         }
 
+    }
+
+    @PutMapping("usuarios")
+    public ResponseEntity<?> updateCustomer(@RequestBody Usuario customer ){
+        try {
+            return new ResponseEntity<Usuario>(
+                    usuarioService.updateUsuario(customer),
+                    HttpStatus.CREATED);
+
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<String>(e.getMessage() , HttpStatus.BAD_REQUEST );
+        }
+    }
+
+    @DeleteMapping("{id}") //localhost:8080/api/customers/2
+    public ResponseEntity<?> deleteCustomerById(@PathVariable("id") long idCustomer) {
+        try {
+            return new ResponseEntity<String>(
+                    usuarioService.deleteCustomerById(idCustomer),
+                    HttpStatus.OK);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<String>(e.getMessage() , HttpStatus.NOT_FOUND );
+        }
     }
 
 }

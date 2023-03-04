@@ -22,6 +22,8 @@ public class Producto {
 
     private String imgLink;
 
+    private String spicy;
+
     protected Producto() {
 
     }

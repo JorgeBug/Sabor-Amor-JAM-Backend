@@ -12,6 +12,10 @@ public interface IUsuarioService {
 
     public boolean existUsuarioByEmail(String email);
 
+    public Usuario updateUsuario(Usuario customer);
+
+    public Usuario getUsuarioById(int id);
+
 
 
 
