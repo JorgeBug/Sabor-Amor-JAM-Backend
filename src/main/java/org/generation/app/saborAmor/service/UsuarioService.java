@@ -43,7 +43,7 @@ public class UsuarioService implements IUsuarioService {
             throw new IllegalStateException("Email length is greater than: " + 150);
 
         // Obtener los datos actuales del cliente
-        Usuario customer = getUsuarioById(newDataCustomer.getIdUsuario());
+        Usuario customer = getUsuarioByEmail(newDataCustomer.getEmail()).get(0);
         //Actualizar los datos permitidos
       //  customer.setIdUsuario(newDataCustomer.getIdUsuario());
         customer.setNombre( newDataCustomer.getNombre() );
@@ -59,4 +59,11 @@ public class UsuarioService implements IUsuarioService {
                 .orElseThrow( ()->
                         new IllegalStateException("User does not exist with id: " + id));
     }
+
+    @Override
+    public List<Usuario> getUsuarioByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
+
+
 }

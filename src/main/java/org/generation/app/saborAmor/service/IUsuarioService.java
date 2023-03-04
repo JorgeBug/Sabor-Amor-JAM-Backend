@@ -16,6 +16,8 @@ public interface IUsuarioService {
 
     public Usuario getUsuarioById(int id);
 
+    public List<Usuario> getUsuarioByEmail(String email);
+
 
 
 

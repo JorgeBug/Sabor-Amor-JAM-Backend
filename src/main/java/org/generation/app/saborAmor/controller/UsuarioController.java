@@ -46,15 +46,15 @@ public class UsuarioController {
         }
     }
 
-    @DeleteMapping("{id}") //localhost:8080/api/customers/2
-    public ResponseEntity<?> deleteCustomerById(@PathVariable("id") long idCustomer) {
-        try {
-            return new ResponseEntity<String>(
-                    usuarioService.deleteCustomerById(idCustomer),
-                    HttpStatus.OK);
-        } catch (IllegalStateException e) {
-            return new ResponseEntity<String>(e.getMessage() , HttpStatus.NOT_FOUND );
-        }
-    }
+//    @DeleteMapping("{id}") //localhost:8080/api/customers/2
+//    public ResponseEntity<?> deleteCustomerById(@PathVariable("id") long idCustomer) {
+//        try {
+//            return new ResponseEntity<String>(
+//                    usuarioService.deleteCustomerById(idCustomer),
+//                    HttpStatus.OK);
+//        } catch (IllegalStateException e) {
+//            return new ResponseEntity<String>(e.getMessage() , HttpStatus.NOT_FOUND );
+//        }
+//    }
 
 }
