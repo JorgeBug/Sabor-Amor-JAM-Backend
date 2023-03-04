@@ -90,5 +90,19 @@ public class Producto {
         this.imgLink = imgLink;
     }
 
+    public String getSpicy() {
+        return spicy;
+    }
 
+    public void setSpicy(String spicy) {
+        this.spicy = spicy;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 }
