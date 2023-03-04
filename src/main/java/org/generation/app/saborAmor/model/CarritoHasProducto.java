@@ -2,24 +2,19 @@
 //
 //import jakarta.persistence.*;
 //
-//@Entity
-//public class CarritoHasProducto {
+//import java.io.Serializable;
 //
-//    @Column(nullable = false)
-//    private int cantidad;
 //
+//@Embeddable
+//public class CarritoHasProducto implements Serializable {
 //
 //    @ManyToOne
-//    @JoinColumn(name="fk_id_carrito")
-//    private Carrito fkIdCarrito;
+//    @JoinColumn(name = "Carrito_idCarrito")
+//    private Carrito carrito;
 //
-//    @Id
 //    @ManyToOne
-//    @JoinColumn(name="fk_id_producto")
-//    private Producto fkIdProducto;
+//    @JoinColumn(name = "Producto_IdProducto")
+//    private Producto producto;
 //
-//    protected CarritoHasProducto(){
-//
-//    }
-//
+//    // getters y setters
 //}

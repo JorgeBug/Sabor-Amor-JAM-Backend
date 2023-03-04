@@ -2,6 +2,7 @@ package org.generation.app.saborAmor.service;
 import org.generation.app.saborAmor.model.Producto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IProductService {
 
@@ -13,6 +14,10 @@ public interface IProductService {
 
     Producto saveProducto(Producto producto);
 
-    Producto deleteProducto(String productName);
+    int deleteProductoById(int productId);
+
+    Boolean productExistsById(int id);
+
+    Producto getProductoById(int id);
 
 }
