@@ -16,7 +16,7 @@ INSERT INTO usuario(nombre, apellido, email, telefono, contrasenia) VALUES ("Jos
 
 
 --Carrito
-INSERT INTO carrito(fk_id_usuario) VALUES ("1");
+--INSERT INTO carrito(fk_id_usuario) VALUES ("1");
 
 
 --Productos
@@ -28,23 +28,29 @@ INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,cate
 
 
 --Pedido
-INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,fk_id_usuario) VALUES ("9 de de Julio","3 de Marzo",500,1)
-INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,fk_id_usuario) VALUES ("10 de Abril","14 de Marzo",2000,2)
+INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("9 de de Julio","3 de Marzo",500,1);
+INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("10 de Abril","14 de Marzo",2000,2);
+INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("11 de Mayo","1 de Marzo",720,1);
+--
+--
+--INSERT INTO pedido (fecha_entrega,fecha_pedido,monto)
+--values ('3 Marzo','1 Febrero',500)
+
 
 
 --Pedido orden puente
     -- USUARIO 1 -------------
-    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (1,1,5);
-
-    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (2,1,9);
-
-    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (3,1,7);
+--    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (1,1,5);
+--
+--    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (2,1,9);
+--
+--    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (3,1,7);
 
 
     -- USUARIO 2 -------------
-    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (3,2,1);
-
-    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (1,2,12);
-
-    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (2,2,6);
+--    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (3,2,1);
+--
+--    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (1,2,12);
+--
+--    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (2,2,6);
 

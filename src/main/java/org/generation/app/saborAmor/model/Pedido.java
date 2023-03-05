@@ -3,9 +3,11 @@ package org.generation.app.saborAmor.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Embeddable
+@Table(name = "pedido")
 public class Pedido implements Serializable {
 
     @Id
@@ -20,9 +22,12 @@ public class Pedido implements Serializable {
     @Column( nullable = false)
     private int monto;
 
+    @OneToMany(mappedBy = "pedido")
+    private Set<PedidoProducto> pedidos = new HashSet<>();
+
     @ManyToOne
-    @JoinColumn(name="fk_id_usuario")
-    private Usuario fkIdUsuario;
+    @JoinColumn(name="usuario_id")
+    private Usuario uduarioId;
 
 
 

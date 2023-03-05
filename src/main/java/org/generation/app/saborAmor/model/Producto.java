@@ -3,6 +3,8 @@ package org.generation.app.saborAmor.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Embeddable
@@ -32,6 +34,9 @@ public class Producto implements Serializable {
 
     @Column ( nullable = false)
     private String categoria;
+
+    @OneToMany(mappedBy = "producto")
+    private Set<PedidoProducto> pedidos = new HashSet<>();
 
     protected Producto() {
 
