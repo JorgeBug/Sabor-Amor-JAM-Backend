@@ -21,7 +21,7 @@ public class Pedido implements Serializable {
     private int monto;
 
     @ManyToOne
-    @JoinColumn(name="fk_idUsuario")
+    @JoinColumn(name="fk_id_usuario")
     private Usuario fkIdUsuario;
 
 
