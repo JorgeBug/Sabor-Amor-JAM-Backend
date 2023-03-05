@@ -22,3 +22,29 @@ INSERT INTO carrito(fk_id_usuario) VALUES ("1");
 --Productos
 INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("MI SUPER SALSITA",70,250,"#"," Texto de descripcion","3","salsa");
 INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("MI MERMELADITA",190,100,"#"," Texto de descripcion","3","mermelada");
+INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("SALSA TLALPENIA",190,100,"#"," Texto de descripcion","2","salsa");
+INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("SALSA DE SHILE DE ARBOL",190,100,"#"," Texto de descripcion","2","salsa");
+INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,categoria) VALUES ("MERMELADA DE MANGO",190,100,"#"," Texto de descripcion","2","mermelada");
+
+
+--Pedido
+INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,fk_id_usuario) VALUES ("9 de de Julio","3 de Marzo",500,1)
+INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,fk_id_usuario) VALUES ("10 de Abril","14 de Marzo",2000,2)
+
+
+--Pedido orden puente
+    -- USUARIO 1 -------------
+    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (1,1,5);
+
+    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (2,1,9);
+
+    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (3,1,7);
+
+
+    -- USUARIO 2 -------------
+    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (3,2,1);
+
+    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (1,2,12);
+
+    insert into pedido_orden_puente (producto_id_producto,pedido_id_pedido,cantidad) values (2,2,6);
+

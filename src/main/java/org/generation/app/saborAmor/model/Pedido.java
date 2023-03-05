@@ -2,8 +2,11 @@ package org.generation.app.saborAmor.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-public class Pedido {
+@Embeddable
+public class Pedido implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -18,8 +21,9 @@ public class Pedido {
     private int monto;
 
     @ManyToOne
-    @JoinColumn(name="fk_IdCarrito")
-    private Carrito fkIdCarrito;
+    @JoinColumn(name="fk_idUsuario")
+    private Usuario fkIdUsuario;
+
 
 
     protected Pedido() {

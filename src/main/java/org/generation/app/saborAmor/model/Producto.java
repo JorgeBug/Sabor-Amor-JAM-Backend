@@ -2,8 +2,11 @@ package org.generation.app.saborAmor.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-public class Producto {
+@Embeddable
+public class Producto implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
