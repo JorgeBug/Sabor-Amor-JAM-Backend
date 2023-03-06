@@ -21,7 +21,7 @@ public class PedidoService implements IPedidoService {
     }
 
     @Override
-    public List<PedidoProducto> getAllPedidoProductoByPedidoId(int idPedido) {
+    public List<Pedido> getAllPedidoProductoByPedidoId(int idPedido) {
         return pedidoRepository.findAllPedidosById(idPedido);
     }
 }

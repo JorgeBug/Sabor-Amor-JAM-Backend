@@ -26,7 +26,7 @@ INSERT INTO producto(nombre, precio, contenido, img_link, descripcion,spicy,cate
 --Pedido
 INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("9 de de Julio","3 de Marzo",500,1);
 INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("10 de Abril","14 de Marzo",2000,2);
-INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("11 de Mayo","1 de Marzo",720,1);
+
 
 
 --PedidoProducto

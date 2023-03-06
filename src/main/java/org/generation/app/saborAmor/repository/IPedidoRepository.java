@@ -13,7 +13,7 @@ public interface IPedidoRepository extends CrudRepository<Pedido,Integer> {
 
    Pedido findById(int pedidoId);
 
-   List<PedidoProducto> findAllPedidosById(int pedidoId);
+   List<Pedido> findAllPedidosById(int pedidoId);
 
 
 

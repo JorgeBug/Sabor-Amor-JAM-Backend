@@ -9,7 +9,7 @@ public interface IPedidoService {
 
     public List<Pedido> getAllPedidosByUsuarioId(int idUsuario);
 
-    public List<PedidoProducto> getAllPedidoProductoByPedidoId(int idPedido);
+    public List<Pedido> getAllPedidoProductoByPedidoId(int idPedido);
 
 
 
