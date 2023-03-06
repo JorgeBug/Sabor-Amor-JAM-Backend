@@ -33,11 +33,19 @@ INSERT INTO pedido (fecha_entrega,fecha_pedido,monto,usuario_id) VALUES ("10 de 
     INSERT INTO pedido_producto (id_pedido,id_producto,cantidad) VALUES (1,1,3);
     INSERT INTO pedido_producto (id_pedido,id_producto,cantidad) VALUES (1,2,8);
     INSERT INTO pedido_producto (id_pedido,id_producto,cantidad) VALUES (1,4,1);
-
     INSERT INTO pedido_producto (id_pedido,id_producto,cantidad) VALUES (2,3,9);
 
 
+-- Metodo de Pago
+INSERT INTO metodo_pago(cvv,fecha_de_expiracion, num_tarjeta, titular_tarjeta, fk_id_usario) VALUES ("451","05/23","2387-6574-6187-4152", "José Enrique Fernández Mora",  "1");
+INSERT INTO metodo_pago(cvv,fecha_de_expiracion, num_tarjeta, titular_tarjeta, fk_id_usario) VALUES ("221","05/25","2387-6574-6187-0000", "José Enrique Fernández Mora",  "1");
+INSERT INTO metodo_pago(cvv,fecha_de_expiracion, num_tarjeta, titular_tarjeta, fk_id_usario) VALUES ("589", "21/12", "8374-0235-6127-7283", "Juan Antonio Herrera González", "2");
+INSERT INTO metodo_pago(cvv,fecha_de_expiracion, num_tarjeta, titular_tarjeta, fk_id_usario) VALUES ("258", "02/02", "9382-8283-7384-9123", "Karla Sofía Arenas Valerio","3");
 
 
-
+--	Datos de envío
+INSERT INTO datos_envio(nombre, apellido, calle, num_exterior, colonia, municipio, estado, cp, fk_id_usuario) VALUES ("Jesús", "Mariana", "Emiliano Zapata", "2501", "Revolución", "Zapopan", "Jalisco", "44100", "3");
+INSERT INTO datos_envio(nombre, apellido, calle, num_exterior, colonia, municipio, estado, cp, fk_id_usuario) VALUES("Luis", "Soto","Avenida Miguel Hidalgo", "275", "Independencia", "Puebla", "Puebla", "72500", "1");
+INSERT INTO datos_envio(nombre, apellido, calle, num_exterior, colonia, municipio, estado, cp, fk_id_usuario) VALUES("Luis", "Soto", "Avenida siempre viva", "123", "Tlaquepaque", "Xochimilco", "CDMX", "44100", "1");
+INSERT INTO datos_envio(nombre, apellido, calle, num_exterior, colonia, municipio, estado, cp, fk_id_usuario) VALUES("Luisa", "Solar", "Avenida siempre viva", "123", "Tlaquepaque", "Xochimilco", "CDMX", "44100", "2");
 

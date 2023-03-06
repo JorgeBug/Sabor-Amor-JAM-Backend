@@ -11,6 +11,8 @@ public interface IPedidoService {
 
     public List<Pedido> getAllPedidoProductoByPedidoId(int idPedido);
 
+    public Pedido savePedido(Pedido pedido);
+
 
 
 

@@ -21,7 +21,6 @@ public class PedidoProducto {
     @ManyToOne
     @MapsId("productoId")
     @JoinColumn(name = "id_producto")
-
     private Producto producto;
 
     @Column(name = "cantidad")

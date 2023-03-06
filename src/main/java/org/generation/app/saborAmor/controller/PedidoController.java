@@ -21,10 +21,12 @@ public class PedidoController {
         return pedidoService.getAllPedidoProductoByPedidoId(idUsuario);
     }
 
-    @PostMapping
+    @PostMapping("/pedido/")
     public Pedido createPedido(@RequestBody Pedido newPedidoData){
-        return null;
+        return pedidoService.savePedido(newPedidoData);
     }
+
+
 
 
 

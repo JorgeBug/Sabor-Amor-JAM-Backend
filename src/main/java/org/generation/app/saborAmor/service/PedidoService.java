@@ -24,4 +24,9 @@ public class PedidoService implements IPedidoService {
     public List<Pedido> getAllPedidoProductoByPedidoId(int idPedido) {
         return pedidoRepository.findAllPedidosById(idPedido);
     }
+
+    @Override
+    public Pedido savePedido(Pedido pedido) {
+        return pedidoRepository.save(pedido);
+    }
 }

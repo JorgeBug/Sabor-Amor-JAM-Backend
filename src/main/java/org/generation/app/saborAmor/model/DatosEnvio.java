@@ -9,52 +9,39 @@ public class DatosEnvio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEnvio;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String nombre;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String apellido;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String calle;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String numExterior;
 
     private String interior;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private int cp;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String colonia;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String estado;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private String municipio;
 
     @ManyToOne
-    @JoinColumn(name="fk_idUsuario")
+    @JoinColumn(name = "fk_idUsuario")
     private Usuario fkIdUsuario;
 
     protected DatosEnvio() {
 
     }
-
-//    public DatosEnvio(String nombre, String apellido, String calle, String numExterior, String interior, int cp,
-//                      String colonia, String estado, String municipio, int fkIdUsuario) {
-//        this.nombre = nombre;
-//        this.apellido = apellido;
-//        this.calle = calle;
-//        this.numExterior = numExterior;
-//        this.interior = interior;
-//        this.cp = cp;
-//        this.colonia = colonia;
-//        this.estado = estado;
-//        this.municipio = municipio;
-//    }
 
     public int getIdEnvio() {
         return idEnvio;
@@ -135,7 +122,6 @@ public class DatosEnvio {
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
     }
-
 
 
 }

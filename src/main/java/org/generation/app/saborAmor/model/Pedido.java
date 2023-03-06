@@ -14,7 +14,6 @@ public class Pedido implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @JsonManagedReference
     private int id;
 
     @Column( nullable = false)
