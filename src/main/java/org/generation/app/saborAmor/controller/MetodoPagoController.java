@@ -33,10 +33,23 @@ public class MetodoPagoController {
         return metodoPagoService.getAllMetodosPagoByEmail(email);
     }
     
-    @PostMapping("/metodo-pago")
+    /*@PostMapping("/metodo-pago")
     public MetodoPago saveMetodo(@RequestBody MetodoPago metodopago){
         return metodoPagoService.setMetodoPago(metodopago);
 
-    }
+    }*/
+    
+    @PostMapping ("/metodo-pago")
+	public ResponseEntity<?> setNewMetodoPago(@RequestBody MetodoPago metodoPago) {
+		try {
+			return new ResponseEntity<MetodoPago>(
+					metodoPagoService.setMetodoPago(metodoPago), 
+					HttpStatus.CREATED);					
+			
+		} catch (IllegalStateException e) {
+			return new ResponseEntity<String>(e.getMessage() , HttpStatus.BAD_REQUEST );
+		}
+		
+	}
     
 }

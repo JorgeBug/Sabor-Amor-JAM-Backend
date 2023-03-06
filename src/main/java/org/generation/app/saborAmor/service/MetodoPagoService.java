@@ -24,9 +24,20 @@ public class MetodoPagoService implements IMetodoPagoService{
 		return metodoRepository.findAllMetodosPagoByFkIdUsuarioEmail(email);
 	}
 
-	@Override
+	/*@Override
 	public MetodoPago setMetodoPago(MetodoPago metodoPago) {
 		return metodoRepository.save(metodoPago);
+	}*/
+
+	@Override
+	public MetodoPago setMetodoPago(MetodoPago metodoPago) {
+		if ( existMetodoPagoByNumTarjeta(metodoPago.getNumTarjeta()))
+			throw new IllegalStateException("The user already exists with that card number: " + metodoPago.getNumTarjeta() );
+	
+		MetodoPago newMetodoPago = metodoPago;
+		newMetodoPago.setIdTarjeta(0);
+		
+		return metodoRepository.save(newMetodoPago);
 	}
 
 	@Override
@@ -42,11 +53,14 @@ public class MetodoPagoService implements IMetodoPagoService{
 	}
 
 	@Override
-	public MetodoPago getMetodoPagoById(int idTarjeta) {
+	public boolean existMetodoPagoByNumTarjeta(String numTarjeta) {
+		return metodoRepository.existsByNumTarjeta(numTarjeta);
+	}
+
+	@Override
+	public List<MetodoPago> getAllMetodoPago(int idTarjeta) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 	
 }

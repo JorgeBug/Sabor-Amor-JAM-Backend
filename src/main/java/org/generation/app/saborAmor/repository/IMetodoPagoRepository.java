@@ -11,7 +11,7 @@ public interface IMetodoPagoRepository extends CrudRepository<MetodoPago,Integer
 
 	List<MetodoPago> findAllMetodosPagoByFkIdUsuarioEmail(String email);
 
-	
+	boolean existsByNumTarjeta(String numTarjeta);
 	
 }
 

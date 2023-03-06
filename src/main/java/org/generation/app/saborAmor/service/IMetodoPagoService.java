@@ -12,11 +12,15 @@ public interface IMetodoPagoService {
 	public List<MetodoPago> getAllMetodosPagoByEmail(String email);
 	
 	//Agregar método pago
-	MetodoPago setMetodoPago(MetodoPago metodoPago);
+	public MetodoPago setMetodoPago(MetodoPago metodoPago);
+	public boolean existMetodoPagoByNumTarjeta(String numTarjeta);
+	
+	//Actualizar método de pago
+	MetodoPago updateMetodoPago(MetodoPago metodoPago);
 
-    MetodoPago updateMetodoPago(MetodoPago metodoPago);
-
-    String deleteProductoByNumTarjeta(String numTarjeta);
+	//Borrar método de pago
+    public String deleteProductoByNumTarjeta(String numTarjeta);
     
-    MetodoPago getMetodoPagoById(int idTarjeta);
+    //Todos los métodos de pago
+    List<MetodoPago> getAllMetodoPago(int idTarjeta);
 }
