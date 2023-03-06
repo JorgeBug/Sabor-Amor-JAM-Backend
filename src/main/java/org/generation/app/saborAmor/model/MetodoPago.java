@@ -12,7 +12,7 @@ public class MetodoPago {
     @Column( unique= true, nullable = false)
     private String numTarjeta;
     
-    @Column( nullable = false, unique = true)
+    @Column( nullable = false)
     private String titularTarjeta;
     
     @Column( nullable = false)
@@ -32,7 +32,6 @@ public class MetodoPago {
 
     public MetodoPago(String numTarjeta, String titularTarjeta, int cvv, String fechaDeExpiracion,
 			Usuario fkIdUsuario) {
-		super();
 		this.numTarjeta = numTarjeta;
 		this.titularTarjeta = titularTarjeta;
 		this.cvv = cvv;
@@ -40,6 +39,7 @@ public class MetodoPago {
 		this.fkIdUsuario = fkIdUsuario;
 	}
 
+    //Getter y setter
 	public int getIdTarjeta() {
 		return idTarjeta;
 	}

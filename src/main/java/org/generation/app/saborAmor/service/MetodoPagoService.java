@@ -16,12 +16,12 @@ public class MetodoPagoService implements IMetodoPagoService{
 	
 	@Override
 	public List<MetodoPago> getAllMetodosPagoByFkIdUsuario(int idUsuario) {
-		return metodoRepository.findAllMetodoPagoByFkIdUsuarioIdUsuario(idUsuario);
+		return metodoRepository.findAllMetodosPagoByFkIdUsuarioIdUsuario(idUsuario);
 	}
 
 	@Override
 	public List<MetodoPago> getAllMetodosPagoByEmail(String email) {
-		return metodoRepository.findAllMetodoPagoByFkIdUsuarioEmail(email);
+		return metodoRepository.findAllMetodosPagoByFkIdUsuarioEmail(email);
 	}
 
 	@Override

@@ -7,9 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface IMetodoPagoRepository extends CrudRepository<MetodoPago,Integer> {
 	
-	List<MetodoPago> findAllMetodoPagoByFkIdUsuarioIdUsuario(int idUsuario);
+	List<MetodoPago> findAllMetodosPagoByFkIdUsuarioIdUsuario(int idUsuario);
 
-	List<MetodoPago> findAllMetodoPagoByFkIdUsuarioEmail(String email);
+	List<MetodoPago> findAllMetodosPagoByFkIdUsuarioEmail(String email);
+
 	
 	
 }
