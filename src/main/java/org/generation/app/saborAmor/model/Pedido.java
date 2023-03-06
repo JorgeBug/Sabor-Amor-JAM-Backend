@@ -1,5 +1,7 @@
 package org.generation.app.saborAmor.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -12,7 +14,8 @@ public class Pedido implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int idPedido;
+    @JsonManagedReference
+    private int id;
 
     @Column( nullable = false)
     private String fechaPedido;
@@ -27,7 +30,7 @@ public class Pedido implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="usuario_id")
-    private Usuario uduarioId;
+    private Usuario usuarioId;
 
 
 
@@ -35,18 +38,12 @@ public class Pedido implements Serializable {
 
     }
 
-    public Pedido(String fechaPedido, String fechaEntrega, int monto, int carritoIdCarrito) {
-        this.fechaPedido = fechaPedido;
-        this.fechaEntrega = fechaEntrega;
-        this.monto = monto;
+    public int getId() {
+        return id;
     }
 
-    public int getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFechaPedido() {
@@ -65,7 +62,7 @@ public class Pedido implements Serializable {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public double getMonto() {
+    public int getMonto() {
         return monto;
     }
 
@@ -73,6 +70,19 @@ public class Pedido implements Serializable {
         this.monto = monto;
     }
 
+    public Set<PedidoProducto> getPedidos() {
+        return pedidos;
+    }
 
+    public void setPedidos(Set<PedidoProducto> pedidos) {
+        this.pedidos = pedidos;
+    }
 
+    public Usuario getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Usuario usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 }
