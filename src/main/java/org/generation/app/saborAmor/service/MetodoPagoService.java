@@ -24,10 +24,10 @@ public class MetodoPagoService implements IMetodoPagoService{
 		return metodoRepository.findAllMetodosPagoByFkIdUsuarioEmail(email);
 	}
 
-	/*@Override
-	public MetodoPago setMetodoPago(MetodoPago metodoPago) {
-		return metodoRepository.save(metodoPago);
-	}*/
+	@Override
+	public boolean existMetodoPagoByNumTarjeta(String numTarjeta) {
+		return metodoRepository.existsByNumTarjeta(numTarjeta);
+	}
 
 	@Override
 	public MetodoPago setMetodoPago(MetodoPago metodoPago) {
@@ -41,26 +41,44 @@ public class MetodoPagoService implements IMetodoPagoService{
 	}
 
 	@Override
-	public MetodoPago updateMetodoPago(MetodoPago metodoPago) {
-		// TODO Auto-generated method stub
-		return null;
+	public MetodoPago updateMetodoPago(MetodoPago newMetodoPago) {
+		if (!existMetodoPagoByNumTarjeta(newMetodoPago.getNumTarjeta()))
+            throw new IllegalStateException("The product with number card: " + newMetodoPago.getNumTarjeta() +  " doesn't exist");
+
+        MetodoPago metodoPago = getMetodoPagoById(newMetodoPago.getIdTarjeta());
+        updateMetodo(newMetodoPago, metodoPago);
+		
+        metodoRepository.save(metodoPago);
+        return metodoPago;
 	}
 
 	@Override
-	public String deleteProductoByNumTarjeta(String numTarjeta) {
-		// TODO Auto-generated method stub
-		return null;
+	public MetodoPago getMetodoPagoById(int idTarjeta) {
+		return metodoRepository.findById(idTarjeta)
+				.orElseThrow( ()-> 
+				new IllegalStateException("Payment method does not exist with id: " + idTarjeta));
 	}
 
 	@Override
-	public boolean existMetodoPagoByNumTarjeta(String numTarjeta) {
-		return metodoRepository.existsByNumTarjeta(numTarjeta);
+	public List<MetodoPago> getAllMetodoPago() {
+		return (List<MetodoPago>) metodoRepository.findAll();
 	}
 
+	//Grabs all the attributes of the first product and uses them
+    //to update the second one.
+    private void updateMetodo(MetodoPago newMetodoPago, MetodoPago metodoPago){
+        metodoPago.setNumTarjeta(newMetodoPago.getNumTarjeta());
+        metodoPago.setTitularTarjeta(newMetodoPago.getTitularTarjeta());
+        metodoPago.setCvv(newMetodoPago.getCvv());
+        metodoPago.setFechaDeExpiracion(newMetodoPago.getFechaDeExpiracion());
+        metodoPago.setFkIdUsuario(metodoPago.getFkIdUsuario());
+    }
+
 	@Override
-	public List<MetodoPago> getAllMetodoPago(int idTarjeta) {
-		// TODO Auto-generated method stub
-		return null;
+	public int deleteMetodoByIdTarjeta(int idTarjeta) {
+		MetodoPago metodoPago = getMetodoPagoById(idTarjeta);
+		metodoRepository.deleteById(idTarjeta);
+		return idTarjeta;
 	}
 	
 }

@@ -16,11 +16,13 @@ public interface IMetodoPagoService {
 	public boolean existMetodoPagoByNumTarjeta(String numTarjeta);
 	
 	//Actualizar método de pago
-	MetodoPago updateMetodoPago(MetodoPago metodoPago);
-
+	public MetodoPago updateMetodoPago(MetodoPago metodoPago);
+	public MetodoPago getMetodoPagoById(int idTarjeta);
+	
 	//Borrar método de pago
-    public String deleteProductoByNumTarjeta(String numTarjeta);
+    public int deleteMetodoByIdTarjeta(int idTarjeta);
     
     //Todos los métodos de pago
-    List<MetodoPago> getAllMetodoPago(int idTarjeta);
+    List<MetodoPago> getAllMetodoPago();
+    
 }
