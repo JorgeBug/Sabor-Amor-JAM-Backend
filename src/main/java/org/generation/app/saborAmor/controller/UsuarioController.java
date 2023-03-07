@@ -1,5 +1,6 @@
 package org.generation.app.saborAmor.controller;
 
+import org.generation.app.saborAmor.dto.UsuarioDto;
 import org.generation.app.saborAmor.model.Usuario;
 import org.generation.app.saborAmor.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,23 @@ public class UsuarioController {
     @GetMapping("/usuarios")
     public List<Usuario> getAllUsuarios(){
         return usuarioService.getAllUsuarios();
+    }
+    
+    @GetMapping("/usuarios/{id}") //localhost:8080/api/customers/2
+	public ResponseEntity<?> getUsuarioById(@PathVariable("id") int idUsuario) {
+		try {
+			return new ResponseEntity<UsuarioDto>(
+					usuarioService.getUsuarioDtoById(idUsuario), 
+					HttpStatus.OK);													
+		} catch (IllegalStateException e) {
+			return new ResponseEntity<String>(e.getMessage() , HttpStatus.NOT_FOUND );
+		}
+	}
+    
+
+    @GetMapping("/usuarios/email/{email}")
+    public Usuario getUsuarioByEmail(@PathVariable("email") String email){
+        return usuarioService.getUsuarioByEmail(email);
     }
 
     @PostMapping("usuarios")

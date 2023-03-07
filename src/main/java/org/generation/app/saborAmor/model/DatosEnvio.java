@@ -36,106 +36,113 @@ public class DatosEnvio {
     private String municipio;
 
     @ManyToOne
-    @JoinColumn(name="fk_idUsuario")
+    @JoinColumn(name="fk_id_usuario" )
     private Usuario fkIdUsuario;
 
-    protected DatosEnvio() {
-
-    }
-
-//    public DatosEnvio(String nombre, String apellido, String calle, String numExterior, String interior, int cp,
-//                      String colonia, String estado, String municipio, int fkIdUsuario) {
-//        this.nombre = nombre;
-//        this.apellido = apellido;
-//        this.calle = calle;
-//        this.numExterior = numExterior;
-//        this.interior = interior;
-//        this.cp = cp;
-//        this.colonia = colonia;
-//        this.estado = estado;
-//        this.municipio = municipio;
-//    }
-
     public int getIdEnvio() {
-        return idEnvio;
+		return idEnvio;
+	}
+
+	public void setIdEnvio(int idEnvio) {
+		this.idEnvio = idEnvio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getCalle() {
+		return calle;
+	}
+
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+
+	public String getNumExterior() {
+		return numExterior;
+	}
+
+	public void setNumExterior(String numExterior) {
+		this.numExterior = numExterior;
+	}
+
+	public String getInterior() {
+		return interior;
+	}
+
+	public void setInterior(String interior) {
+		this.interior = interior;
+	}
+
+	public int getCp() {
+		return cp;
+	}
+
+	public void setCp(int cp) {
+		this.cp = cp;
+	}
+
+	public String getColonia() {
+		return colonia;
+	}
+
+	public void setColonia(String colonia) {
+		this.colonia = colonia;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
+	}
+
+	public Usuario getFkIdUsuario() {
+		return fkIdUsuario;
+	}
+
+	public void setFkIdUsuario(Usuario fkIdUsuario) {
+		this.fkIdUsuario = fkIdUsuario;
+	}
+
+	protected DatosEnvio() {
+
     }
 
-    public void setIdEnvio(int idEnvio) {
-        this.idEnvio = idEnvio;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
+    public DatosEnvio(String nombre, String apellido, String calle, String numExterior, String interior, int cp,
+                      String colonia, String estado, String municipio, int fkIdUsuario) {
         this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getCalle() {
-        return calle;
-    }
-
-    public void setCalle(String calle) {
         this.calle = calle;
-    }
-
-    public String getNumExterior() {
-        return numExterior;
-    }
-
-    public void setNumExterior(String numExterior) {
         this.numExterior = numExterior;
-    }
-
-    public String getInterior() {
-        return interior;
-    }
-
-    public void setInterior(String interior) {
         this.interior = interior;
-    }
-
-    public int getCp() {
-        return cp;
-    }
-
-    public void setCp(int cp) {
         this.cp = cp;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
         this.colonia = colonia;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(String municipio) {
         this.municipio = municipio;
     }
-
 
 
 }

@@ -7,9 +7,8 @@ import java.util.List;
 
 public interface IUsuarioRepository extends CrudRepository<Usuario,Integer> {
 
-    List<Usuario> findByEmail(String email);
+    Usuario findUsuarioByEmail(String email);
 
-    boolean existsByEmail(String email);
-
+    boolean existsByEmail(String email); 
 
 }

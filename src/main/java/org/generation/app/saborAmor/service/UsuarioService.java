@@ -1,11 +1,12 @@
 package org.generation.app.saborAmor.service;
 
+import java.util.List;
+
+import org.generation.app.saborAmor.dto.UsuarioDto;
 import org.generation.app.saborAmor.model.Usuario;
 import org.generation.app.saborAmor.repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UsuarioService implements IUsuarioService {
@@ -43,7 +44,7 @@ public class UsuarioService implements IUsuarioService {
             throw new IllegalStateException("Email length is greater than: " + 150);
 
         // Obtener los datos actuales del cliente
-        Usuario customer = getUsuarioByEmail(newDataCustomer.getEmail()).get(0);
+        Usuario customer = getUsuarioByEmail(newDataCustomer.getEmail());
         //Actualizar los datos permitidos
         customer.setNombre( newDataCustomer.getNombre() );
         customer.setApellido( newDataCustomer.getApellido() );
@@ -53,15 +54,23 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public Usuario getUsuarioById(int id) {
-        return usuarioRepository.findById(id)
+    public UsuarioDto getUsuarioDtoById(int id) {
+     Usuario usuario =   usuarioRepository.findById(id)
                 .orElseThrow( ()->
                         new IllegalStateException("User does not exist with id: " + id));
+     
+     	UsuarioDto usuarioDto = new UsuarioDto();
+     	usuarioDto.setNombre(usuario.getNombre());
+     	usuarioDto.setApellido(usuario.getApellido());
+     	usuarioDto.setTelefono(usuario.getTelefono());
+     	usuarioDto.setEmail(usuario.getEmail());
+     
+     return usuarioDto; 
     }
 
     @Override
-    public List<Usuario> getUsuarioByEmail(String email) {
-        return usuarioRepository.findByEmail(email);
+    public Usuario getUsuarioByEmail(String email) {
+        return usuarioRepository.findUsuarioByEmail(email);
     }
 
     @Override
@@ -71,5 +80,11 @@ public class UsuarioService implements IUsuarioService {
         return "The user was delete with id " + idUsuario;
     }
 
+	@Override
+	public Usuario getUsuarioById(int id) {
+		return usuarioRepository.findById(id)
+                .orElseThrow( ()->
+                        new IllegalStateException("User does not exist with id: " + id));
+	}
 
 }
